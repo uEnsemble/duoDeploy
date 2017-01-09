@@ -22,19 +22,19 @@ echo "ARTIFACTS_ARRAY=$ARTIFACTS_ARRAY"
 echo "ARTIFACTS_ARRAY_LENGTH=$ARTIFACTS_ARRAY_LENGTH"
 
 COUNTER=0
-while [ $COUNTER -lt $ARTIFACT_ARRAY_LENGTH ]; do
+while [ "$COUNTER" -le "$ARTIFACTS_ARRAY_LENGTH" ]; do
   echo The counter is $COUNTER
+
+  URL=$(echo $ARTIFACTS_ARRAY | jq ".[$COUNTER] ")
+
   let COUNTER=COUNTER+1
 
-  URL=$(echo ARTIFACTS_ARRAY | jq ".[0] | .url ")
+  echo "mkdir build$COUNTER"
 
-  mkdir build$COUNTER
-
-  cd build$COUNTER
-  curl -L $URL > output.tz
-  tar -xvzf output.tz
-  rm output.tz
-  cd ..
+  echo "cd build$COUNTER"
+  echo "curl -L $URL > output.tz"
+  echo "tar -xvzf output.tz"
+  echo "rm output.tz"
+  echo "cd .."
 
 done
-
