@@ -14,6 +14,8 @@
       no_log: True
     - name: PWD, ls SHELL
       shell: "pwd; ls"
+      register: pwdls
+    - debug: msg="{{ pwdls.stdout }}"
     - name: CF Push build1
       shell: "cd build1; cf push -f manifest.yml -u none"
     - name: CF Push build2
