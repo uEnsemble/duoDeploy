@@ -27,6 +27,7 @@ while [ "$COUNTER" -le "$ARTIFACTS_ARRAY_LENGTH" ]; do
 
   URL=$(echo $ARTIFACTS_ARRAY | jq ".[$COUNTER] ")
 
+
   let COUNTER=COUNTER+1
 
   echo "mkdir build$COUNTER"
