@@ -9,10 +9,11 @@ fi
 
 # Get deployment event info from GH for payload (/repos/:owner/:repo/deployments/:deployment_id)
 GH_EVENT_URL=$GH_BASE_URL/repos/$TRAVIS_REPO_SLUG/deployments/$TRAVIS_TAG
+echo "GH_EVENT_URL=$GH_EVENT_URL"
 GH_DEPLOYMENT=$(curl -H "Authorization: token $GH_TOKEN" $GH_EVENT_URL)
 
 #get the payload info
-DEPLOYMENT_PAYLOAD=$(echo $GH_DEPLOYMENT | jq ".deployment | .payload")
+DEPLOYMENT_PAYLOAD=$(echo $GH_DEPLOYMENT | jq ".payload")
 ARTIFACTS_ARRAY=$(echo $DEPLOYMENT_PAYLOAD | jq ".releases")
 ARTIFACTS_ARRAY_LENGTH=$(echo $DEPLOYMENT_PAYLOAD | jq ". | length")
 
