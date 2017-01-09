@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # If github tag is set
-if [ -n "$TRAVIS_REPO_SLUG" ]; then
+if [ -n "$TRAVIS_TAG" ]; then
   # Put all work in here
   echo "tag set"
 fi
