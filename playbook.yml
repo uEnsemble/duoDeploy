@@ -22,4 +22,5 @@
         chdir: build1
     - name: CF Push build2
       shell: "cf push -f manifest.yml -u none"
+      args:
         chdir: build1
