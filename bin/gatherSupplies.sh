@@ -41,3 +41,11 @@ while [ "$COUNTER" -le "$ARTIFACTS_ARRAY_LENGTH" ]; do
   echo "cd .."
 
 done
+
+echo ls
+ls
+
+echo ls bin
+ls bin
+
+

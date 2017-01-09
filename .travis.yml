@@ -11,6 +11,7 @@ before_deploy:
   - bash bin/setup.sh               #Install cf and aws
   - bash bin/ansibleSetup.sh        #Install ansible
   - bash bin/gatherSupplies.sh      #Get the files to deploy
+
 deploy:
     - provider: script
       skip_cleanup: true
