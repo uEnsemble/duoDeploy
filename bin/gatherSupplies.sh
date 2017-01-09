@@ -33,12 +33,22 @@ while [ "$COUNTER" -le "$ARTIFACTS_ARRAY_LENGTH" ]; do
   let COUNTER=COUNTER+1
 
   echo "mkdir build$COUNTER"
+  mkdir build$COUNTER
 
   echo "cd build$COUNTER"
+  cd build$COUNTER
+
   echo "curl -L $URL > output.tz"
+  curl -L $URL > output.tz
+
   echo "tar -xvzf output.tz"
+  tar -xvzf output.tz
+
   echo "rm output.tz"
+  rm output.tz
+
   echo "cd .."
+  cd ..
 
 done
 
