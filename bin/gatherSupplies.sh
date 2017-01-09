@@ -6,6 +6,8 @@ if [ -n "$TRAVIS_TAG" ]; then
   echo "tag set"
 fi
 
+echo pwd
+pwd
 
 # Get deployment event info from GH for payload (/repos/:owner/:repo/deployments/:deployment_id)
 GH_EVENT_URL=$GH_BASE_URL/repos/$TRAVIS_REPO_SLUG/deployments/$TRAVIS_TAG
