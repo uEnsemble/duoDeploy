@@ -17,6 +17,6 @@
       register: pwdls
     - debug: msg="{{ pwdls.stdout }}"
     - name: CF Push build1
-      shell: "cd build1; cf push -f manifest.yml -u none"
+      shell: "cd build1; cf push -u none"
     - name: CF Push build2
-      shell: "cd build2; cf push -f manifest.yml -u none"
+      shell: "cd build2; cf push -u none"
