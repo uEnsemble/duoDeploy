@@ -1,0 +1,18 @@
+# Publish this application to bluemix using ansible
+---
+- name: Publish the duo to Bluemix using Ansible
+  hosts: localhost
+  connection: local
+  vars:
+    username: "{{ lookup('env','BM_USER') }}"
+    password: "{{ lookup('env','BM_PASS') }}"
+    org: "{{ lookup('env','BM_ORG') }}"
+    space: "{{ lookup('env','BM_SPACE') }}"
+  tasks:
+    - name: CF Login
+      shell: "cf login -a https://api.ng.bluemix.net -u {{ username }} -p {{ password  }} -o {{ org }} -s {{ space }}"
+      no_log: True
+    - name: CF Push build1
+      shell: "cd build1; cf push -f manifest.yml -u none"
+    - name: CF Push build2
+      shell: "cd build2; cf push -f manifest.yml -u none"

@@ -1,0 +1,19 @@
+sudo: required
+language: generic
+
+notifications:
+  email: false
+
+script:
+  - echo "fakie" #Just do a task here
+
+before_deploy:
+  - bash bin/setup.sh               #Install cf and aws
+  - bash bin/ansibleSetup.sh        #Install ansible
+  - bash bin/gatherSupplies.sh      #Get the files to deploy
+deploy:
+    - provider: script
+      skip_cleanup: true
+      script: bin/deploy.sh         #run ansible playbook to deploy app to bluemix
+      on:
+         all_branches: true
