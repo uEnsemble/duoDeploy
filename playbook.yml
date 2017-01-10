@@ -18,5 +18,5 @@
     - debug: msg="{{ pwdls.stdout }}"
     - name: CF Push build1
       shell: "cf push -f build1/manifest.yml -u none"
-    - nagme: CF Push build2
+    - name: CF Push build2
       shell: "cf push -f build2/manifest.yml -u none"
