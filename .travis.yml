@@ -1,17 +1,11 @@
 sudo: required
-dist: trusty
 language: generic
-
-addons:
-  apt:
-    packages:
-      - openssl
-      - libssl-dev
-      - libcurl4-openssl-dev
 
 notifications:
   email: false
 
+env:
+  - DEPLOY_STATUS_URL="$GH_BASE_URL/repos/$TRAVIS_REPO_SLUG/deployments/$TRAVIS_TAG/statuses"
 script:
   - echo "fakie" #Just do a task here
 
