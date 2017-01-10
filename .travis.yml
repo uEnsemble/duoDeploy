@@ -2,12 +2,12 @@ sudo: required
 dist: trusty
 language: generic
 
-#addons:
-#  apt:
-#    packages:
-#      - openssl
-#      - libssl-dev
- #     - libcurl4-openssl-dev
+addons:
+  apt:
+    packages:
+      - openssl
+      - libssl-dev
+      - libcurl4-openssl-dev
 
 notifications:
   email: false
