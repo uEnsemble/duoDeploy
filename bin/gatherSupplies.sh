@@ -37,9 +37,11 @@ while [ "$COUNTER" -le "$ARTIFACTS_ARRAY_LENGTH" ]; do
 
   echo "cd build$COUNTER"
   cd build$COUNTER
-
-  echo "curl -L $URL > output.tz"
-  curl -L "$URL" > output.tz
+  
+  echo "wget -O output.tz $URL"
+  wget -O output.tz "$URL"
+  #echo "curl -L $URL > output.tz"
+  #curl -L "$URL" > output.tz
 
   echo "tar -xvzf output.tz"
   tar -xvzf output.tz
