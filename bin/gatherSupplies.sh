@@ -28,7 +28,9 @@ while [ "$COUNTER" -le "$ARTIFACTS_ARRAY_LENGTH" ]; do
   echo The counter is $COUNTER
 
   URL=$(echo $ARTIFACTS_ARRAY | jq ".[$COUNTER] ")
-
+  
+  #Strip these chararcters so curl/wget don't fail
+  URL=$(echo $URL | sed s/\'//g | sed s/\"//g)
 
   let COUNTER=COUNTER+1
 
