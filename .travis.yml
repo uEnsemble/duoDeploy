@@ -1,6 +1,13 @@
 sudo: required
 language: generic
 
+addons:
+  apt:
+    packages:
+      - openssl
+      - libssl-dev
+      - libcurl4-openssl-dev
+
 notifications:
   email: false
 
