@@ -5,6 +5,7 @@ notifications:
   email: false
 
 env:
+  - GH_BASE_URL="https://api.github.com"
   - DEPLOY_STATUS_URL="$GH_BASE_URL/repos/$TRAVIS_REPO_SLUG/deployments/$TRAVIS_TAG/statuses"
 script:
   - echo "Task here" #Just do a task here
