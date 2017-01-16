@@ -12,10 +12,6 @@
     - name: CF Login
       shell: "cf login -a https://api.ng.bluemix.net -u {{ username }} -p {{ password  }} -o {{ org }} -s {{ space }}"
       no_log: True
-    - name: PWD, ls SHELL
-      shell: "pwd; ls"
-      register: pwdls
-    - debug: msg="{{ pwdls.stdout }}"
     - name: CF Push build1
       shell: "cf push -f build1/manifest.yml -u none"
     - name: CF Push build2

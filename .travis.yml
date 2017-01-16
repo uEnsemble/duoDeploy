@@ -7,12 +7,12 @@ notifications:
 env:
   - DEPLOY_STATUS_URL="$GH_BASE_URL/repos/$TRAVIS_REPO_SLUG/deployments/$TRAVIS_TAG/statuses"
 script:
-  - echo "fakie" #Just do a task here
+  - echo "Task here" #Just do a task here
 
 before_deploy:
-  - bash bin/setup.sh               #Install cf and aws
+  - bash bin/cfSetup.sh             #Install cf
   - bash bin/ansibleSetup.sh        #Install ansible
-  - bash bin/gatherSupplies.sh      #Get the files to deploy
+  - bash bin/downloadArtifacts.sh   #Get the files to deploy
 
 deploy:
     - provider: script
@@ -20,3 +20,4 @@ deploy:
       script: bin/deploy.sh         #run ansible playbook to deploy app to bluemix
       on:
          all_branches: true
+
